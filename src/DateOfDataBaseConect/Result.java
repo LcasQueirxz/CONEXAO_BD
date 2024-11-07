@@ -1,4 +1,4 @@
-package br.com.aula.conexao;
+package DateOfDataBaseConect;
 
 import java.util.Scanner;
 import java.sql.Connection;
@@ -6,10 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class MenuPrincipal {
+public class Result {
     public static void main(String[] args) {
         // Estabelecendo conexão com o banco de dados
-        Connection conexao = ConexaoDB.conectar();
+        Connection conexao = conectBD.conectar();
         if (conexao != null) {
             Scanner scanner = new Scanner(System.in);
             int opcao;
@@ -43,7 +43,7 @@ public class MenuPrincipal {
                         System.out.println("Saindo...");
                         break;
                     default:
-                        System.out.println("Opção inválida. Tente novamente.");
+                        System.out.println("Opção invalida. Tente novamente.");
                 }
             } while (opcao != 0);
             scanner.close();
@@ -59,7 +59,7 @@ public class MenuPrincipal {
             System.out.print("Digite a idade do aluno: ");
             int idade = scanner.nextInt();
 
-            // Definindo os valores dos parâmetros da query
+            // Definindo os valores dos parametros da query
             stmt.setString(1, nome);
             stmt.setInt(2, idade);
             stmt.executeUpdate(); // Executando a inserção no banco de dados

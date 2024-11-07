@@ -1,12 +1,12 @@
-package br.com.aula.conexao;
+package DateOfDataBaseConect;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class InserirDados {
+public class insertdate {
     public static void main(String[] args) {
-        Connection conexao = ConexaoDB.conectar();
+        Connection conexao = conectBD.conectar();
         if (conexao != null) {
             String sql = "INSERT INTO alunos (nome, idade) VALUES (?, ?)";
             try {

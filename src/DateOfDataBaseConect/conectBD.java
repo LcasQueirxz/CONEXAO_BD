@@ -1,14 +1,14 @@
-package br.com.aula.conexao;
+package DateOfDataBaseConect;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConexaoDB {
+public class conectBD {
     // Definindo parâmetros para a conexão
-    private static final String URL = "jdbc:mysql://localhost:3306/aula_java_db";
+    private static final String URL = "jdbc:mysql://localhost:3306/bd";
     private static final String USUARIO = "root";
-    private static final String SENHA = ""; // Coloque a senha do seu MySQL, se houver
+    private static final String SENHA = "Uvm@luc15"; // Coloque a senha do seu MySQL, se houver
 
     // Método para obter conexão com o banco
     public static Connection conectar() {

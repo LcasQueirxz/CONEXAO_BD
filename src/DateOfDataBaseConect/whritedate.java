@@ -1,13 +1,13 @@
-package br.com.aula.conexao;
+package DateOfDataBaseConect;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class LerDados {
+public class whritedate {
     public static void main(String[] args) {
-        Connection conexao = ConexaoDB.conectar();
+        Connection conexao = conectBD.conectar();
         if (conexao != null) {
             String sql = "SELECT * FROM alunos";
             try {

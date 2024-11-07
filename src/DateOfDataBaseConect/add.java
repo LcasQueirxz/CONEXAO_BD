@@ -1,13 +1,13 @@
-package br.com.aula.conexao;
+package DateOfDataBaseConect;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class AtualizarDados {
+public class add {
     public static void main(String[] args) {
-        Connection conexao = ConexaoDB.conectar();
+        Connection conexao = conectBD.conectar();
         if (conexao != null) {
             String sql = "UPDATE alunos SET nome = ?, idade = ? WHERE id = ?";
             Scanner scanner = new Scanner(System.in);
