@@ -31,5 +31,9 @@ Este projeto é uma aplicação simples que permite gerenciar registros de aluno
 - **Deletar Aluno**: Permite deletar um aluno do banco de dados.
 - **Listar Alunos**: Permite listar todos os alunos cadastrados no banco de dados.
 
-## 📂 Estrutura do Projeto
+## 📂 Resultado Aplicação 
+![print](https://github.com/LcasQueirxz/CONEXAO_BD/blob/main/imagem/Captura%20de%20Tela%202024-11-09%20%C3%A0s%2019.04.24.png)
+![print](https://github.com/LcasQueirxz/CONEXAO_BD/blob/main/imagem/Captura%20de%20Tela%202024-11-09%20%C3%A0s%2019.04.40.png)
+![print](https://github.com/LcasQueirxz/CONEXAO_BD/blob/main/imagem/Captura%20de%20Tela%202024-11-09%20%C3%A0s%2019.05.06.png)
+![print](https://github.com/LcasQueirxz/CONEXAO_BD/blob/main/imagem/Captura%20de%20Tela%202024-11-09%20%C3%A0s%2019.05.20.png)
 
