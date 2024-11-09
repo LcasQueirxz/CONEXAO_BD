@@ -6,26 +6,26 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Result {
+public class result {
     public static void main(String[] args) {
-        // Estabelecendo conexão com o banco de dados
+        // estabelecendo conexao com o banco de dados
         Connection conexao = conectBD.conectar();
         if (conexao != null) {
             Scanner scanner = new Scanner(System.in);
             int opcao;
             do {
-                // Exibindo menu principal
-                System.out.println("=== Menu Principal ===");
-                System.out.println("1. Inserir Aluno");
-                System.out.println("2. Atualizar Aluno");
-                System.out.println("3. Deletar Aluno");
-                System.out.println("4. Ler Registros de Alunos");
-                System.out.println("0. Sair");
-                System.out.print("Escolha uma opção: ");
+                // exibindo menu principal
+                System.out.println("=== menu principal ===");
+                System.out.println("1. inserir aluno");
+                System.out.println("2. atualizar aluno");
+                System.out.println("3. deletar aluno");
+                System.out.println("4. ler registros de alunos");
+                System.out.println("0. sair");
+                System.out.print("escolha uma opcao: ");
                 opcao = scanner.nextInt();
-                scanner.nextLine(); // Consumir quebra de linha
+                scanner.nextLine(); // consumindo quebra de linha
 
-                // Executando a ação conforme a escolha do usuário
+                // executando a acao conforme a escolha do usuario
                 switch (opcao) {
                     case 1:
                         inserirAluno(conexao, scanner);
@@ -40,10 +40,10 @@ public class Result {
                         lerDadosAlunos(conexao);
                         break;
                     case 0:
-                        System.out.println("Saindo...");
+                        System.out.println("saindo...");
                         break;
                     default:
-                        System.out.println("Opção invalida. Tente novamente.");
+                        System.out.println("opcao invalida. tente novamente.");
                 }
             } while (opcao != 0);
             scanner.close();
@@ -54,65 +54,65 @@ public class Result {
         String sql = "INSERT INTO alunos (nome, idade) VALUES (?, ?)";
         try {
             PreparedStatement stmt = conexao.prepareStatement(sql);
-            System.out.print("Digite o nome do aluno: ");
+            System.out.print("digite o nome do aluno: ");
             String nome = scanner.nextLine();
-            System.out.print("Digite a idade do aluno: ");
+            System.out.print("digite a idade do aluno: ");
             int idade = scanner.nextInt();
 
-            // Definindo os valores dos parametros da query
+            // definindo os valores dos parametros da query
             stmt.setString(1, nome);
             stmt.setInt(2, idade);
-            stmt.executeUpdate(); // Executando a inserção no banco de dados
-            System.out.println("Dados inseridos com sucesso!");
+            stmt.executeUpdate(); // executando a insercao no banco de dados
+            System.out.println("dados inseridos com sucesso!");
         } catch (SQLException e) {
-            System.err.println("Erro ao inserir dados: " + e.getMessage());
+            System.err.println("erro ao inserir dados: " + e.getMessage());
         }
     }
 
     private static void atualizarAluno(Connection conexao, Scanner scanner) {
         String sql = "UPDATE alunos SET nome = ?, idade = ? WHERE id = ?";
         try {
-            System.out.print("Digite o ID do aluno que deseja atualizar: ");
+            System.out.print("digite o id do aluno que deseja atualizar: ");
             int id = scanner.nextInt();
-            scanner.nextLine(); // Consumir quebra de linha
-            System.out.print("Digite o novo nome do aluno: ");
+            scanner.nextLine(); // consumindo quebra de linha
+            System.out.print("digite o novo nome do aluno: ");
             String nome = scanner.nextLine();
-            System.out.print("Digite a nova idade do aluno: ");
+            System.out.print("digite a nova idade do aluno: ");
             int idade = scanner.nextInt();
 
             PreparedStatement stmt = conexao.prepareStatement(sql);
-            // Definindo os valores dos parâmetros da query
+            // definindo os valores dos parametros da query
             stmt.setString(1, nome);
             stmt.setInt(2, idade);
             stmt.setInt(3, id);
-            int rowsUpdated = stmt.executeUpdate(); // Executando a atualização no banco de dados
+            int rowsUpdated = stmt.executeUpdate(); // executando a atualizacao no banco de dados
             if (rowsUpdated > 0) {
-                System.out.println("Registro atualizado com sucesso!");
+                System.out.println("registro atualizado com sucesso!");
             } else {
-                System.out.println("Nenhum registro encontrado com o ID especificado.");
+                System.out.println("nenhum registro encontrado com o id especificado.");
             }
         } catch (SQLException e) {
-            System.err.println("Erro ao atualizar dados: " + e.getMessage());
+            System.err.println("erro ao atualizar dados: " + e.getMessage());
         }
     }
 
     private static void deletarAluno(Connection conexao, Scanner scanner) {
         String sql = "DELETE FROM alunos WHERE id = ?";
         try {
-            System.out.print("Digite o ID do aluno que deseja deletar: ");
+            System.out.print("digite o id do aluno que deseja deletar: ");
             int id = scanner.nextInt();
 
             PreparedStatement stmt = conexao.prepareStatement(sql);
-            // Definindo o valor do parâmetro da query
+            // definindo o valor do parametro da query
             stmt.setInt(1, id);
-            int rowsDeleted = stmt.executeUpdate(); // Executando a exclusão no banco de dados
+            int rowsDeleted = stmt.executeUpdate(); // executando a exclusao no banco de dados
             if (rowsDeleted > 0) {
-                System.out.println("Registro deletado com sucesso!");
+                System.out.println("registro deletado com sucesso!");
             } else {
-                System.out.println("Nenhum registro encontrado com o ID especificado.");
+                System.out.println("nenhum registro encontrado com o id especificado.");
             }
         } catch (SQLException e) {
-            System.err.println("Erro ao deletar dados: " + e.getMessage());
+            System.err.println("erro ao deletar dados: " + e.getMessage());
         }
     }
 
@@ -120,18 +120,18 @@ public class Result {
         String sql = "SELECT * FROM alunos";
         try {
             PreparedStatement stmt = conexao.prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery(); // Executando a consulta no banco de dados
+            ResultSet rs = stmt.executeQuery(); // executando a consulta no banco de dados
 
-            // Iterando sobre o resultado da consulta
+            // iterando sobre o resultado da consulta
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String nome = rs.getString("nome");
                 int idade = rs.getInt("idade");
 
-                System.out.println("ID: " + id + ", Nome: " + nome + ", Idade: " + idade);
+                System.out.println("id: " + id + ", nome: " + nome + ", idade: " + idade);
             }
         } catch (SQLException e) {
-            System.err.println("Erro ao ler dados: " + e.getMessage());
+            System.err.println("erro ao ler dados: " + e.getMessage());
         }
     }
 }

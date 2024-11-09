@@ -5,30 +5,30 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class conectBD {
-    // Definindo parâmetros para a conexão
+    // definindo porta de entrada para a IDE acesse meu BD
     private static final String URL = "jdbc:mysql://localhost:3306/bd";
     private static final String USUARIO = "root";
-    private static final String SENHA = "Uvm@luc15"; // Coloque a senha do seu MySQL, se houver
+    private static final String SENHA = "Uvm@luc15"; // coloque a senha do seu mysql, se houver
 
-    // Método para obter conexão com o banco
+    // metodo para conexao com o banco
     public static Connection conectar() {
         Connection conexao = null;
         try {
-            // Carregando o driver JDBC
+            // carregando o driver jdbc (ferramenta)
             Class.forName("com.mysql.cj.jdbc.Driver");
-            // Tentando estabelecer conexão
+            // tentando estabelecer conexao
             conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
-            System.out.println("Conexão realizada com sucesso!");
+            System.out.println("conexao realizada com sucesso!");
         } catch (ClassNotFoundException e) {
-            System.err.println("Driver não encontrado: " + e.getMessage());
+            System.err.println("driver nao encontrado: " + e.getMessage());
         } catch (SQLException e) {
-            System.err.println("Erro ao conectar: " + e.getMessage());
+            System.err.println("erro ao conectar: " + e.getMessage());
         }
         return conexao;
     }
 
     public static void main(String[] args) {
-        // Testando a conexão
+        // testando a conexao
         conectar();
     }
 }
